@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praveenkumar | Full Stack Developer & AI Game Creator</title>
+  <meta name="description" content="Portfolio of S. Praveenkumar - Full Stack Developer & AI Game Creator from Madurai, India. 3D RPG games, travel websites, and AI study assistants.">
+  <meta name="keywords" content="Praveenkumar, Full Stack Developer, Game Development, Three.js, AI Games, Madurai, India">
+  <meta name="author" content="S. Praveenkumar">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Praveenkumar | Full Stack Developer & AI Game Creator">
+  <meta property="og:description" content="Explore 3D RPG games, web apps, and AI projects built by Praveenkumar from Madurai.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Space Grotesk & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons for crisp UI icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Interactive 3D RPG Particle Canvas -->
+  <canvas id="cyberCanvas"></canvas>
+  <div class="cyber-grid-overlay"></div>
+  <div class="scanline-overlay"></div>
+
+  <!-- Gaming HUD Top Navigation Bar -->
+  <header class="hud-header">
+    <div class="header-container">
+      <a href="#hero" class="brand-logo" id="logoLink">
+        <span class="brand-badge">😶‍🌫️</span>
+        <span class="brand-text">Praveenkumar</span>
+        <span class="status-indicator" title="Status: Online & Ready for Quests">
+          <span class="status-dot"></span>ONLINE
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hud-nav" id="hudNav">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active"><i class="fa-solid fa-crosshairs"></i> Home</a></li>
+          <li><a href="#skills" class="nav-link"><i class="fa-solid fa-bolt"></i> Skills</a></li>
+          <li><a href="#projects" class="nav-link"><i class="fa-solid fa-gamepad"></i> Projects</a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- HUD Action Bar: Sound Toggle & Quick WhatsApp CTA -->
+      <div class="header-actions">
+        <button id="soundToggleBtn" class="hud-icon-btn" title="Toggle Sci-Fi SFX Audio" aria-label="Toggle Sound Effects">
+          <i class="fa-solid fa-volume-high" id="soundIcon"></i>
+          <span class="hud-btn-text">SFX</span>
+        </button>
+
+        <a href="https://wa.me/916382023335?text=Hi%20Praveen,%20I%20saw%20your%20portfolio%20and%20want%20to%20connect!" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="hud-cta-btn">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Let's Talk</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open Navigation Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        
+        <!-- Hero Left: Glowing Circular Photo & HUD Badges -->
+        <div class="hero-left">
+          <div class="avatar-wrapper">
+            <!-- Glowing Orbit Rings -->
+            <div class="orbit-ring orbit-outer"></div>
+            <div class="orbit-ring orbit-inner"></div>
+            
+            <!-- Circular Photo Container -->
+            <div class="avatar-frame">
+              <img src="assets/praveen-photo.jpg" alt="S. Praveenkumar" class="avatar-img" id="heroAvatar">
+              <div class="avatar-glow"></div>
+            </div>
+
+            <!-- Level & Status Badges -->
+            <div class="rpg-stat-badge lvl-badge">
+              <span class="badge-title">RANK</span>
+              <span class="badge-value">Intern</span>
+            </div>
+
+            <div class="rpg-stat-badge class-badge">
+              <span class="badge-title">CLASS</span>
+              <span class="badge-value">AI ARCHITECT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right: Title, Badges, Bio, Buttons, Stats -->
+        <div class="hero-right">
+          
+          <div class="hud-location-tag">
+            <span class="pulse-radar"></span>
+            <span class="location-text"><i class="fa-solid fa-location-dot"></i> Madurai, India</span>
+            <span class="divider">•</span>
+            <span class="server-text">SERVER: ASIA-SOUTH</span>
+          </div>
+
+          <h1 class="hero-name glitch-text" data-text="Praveenkumar"> Praveenkumar</h1>
+          
+          <h2 class="hero-title gradient-text">
+            Full Stack Developer &amp; Build Games 
+          </h2>
+
+          <!-- Specialty Tags -->
+          <div class="hero-tags">
+            <span class="tag-badge"><i class="fa-solid fa-layer-group"></i> Full Stack</span>
+            <span class="tag-badge"><i class="fa-solid fa-dragon"></i> Game Development</span>
+            <span class="tag-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Integrated</span>
+          </div>
+
+          <!-- RPG Story Dialog Box Style Bio -->
+          <div class="rpg-dialog-box">
+            <div class="dialog-header">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="dialog-title">// MISSION BRIEFING</span>
+            </div>
+            <p class="about-text">
+              "I'm Praveenkumar from Madurai. I build 3D games with AI and websites that help in Studies. I create websites for Madurai RM Tour and Travels. Creative game story designer turning ideas into playable worlds."
+            </p>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-purple sfx-trigger">
+              <i class="fa-solid fa-gamepad"></i> View Projects
+            </a>
+            <a href="#contact" class="btn btn-outline sfx-trigger">
+              <i class="fa-solid fa-paper-plane"></i> Contact Me
+            </a>
+          </div>
+
+          <!-- Player RPG Stats Bar -->
+          <div class="hero-stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+              <div class="stat-info">
+                <span class="stat-number">2+</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-cube"></i></div>
+              <div class="stat-info">
+                <span class="stat-number">20+</span>
+                <span class="stat-label">Projects Completed</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-microchip"></i></div>
+              <div class="stat-info">
+                <span class="stat-number">AI</span>
+                <span class="stat-label">Powered Games</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header">
+          <div class="section-kicker">
+            <i class="fa-solid fa-shield-halved"></i> SKILL TREE &amp; ARSENAL
+          </div>
+          <h2 class="section-title">Skills &amp; Technologies</h2>
+          <p class="section-subtitle">Technologies I work with daily to forge immersive applications and web engines</p>
+        </div>
+
+        <!-- 8 Skills Grid -->
+        <div class="skills-grid">
+          
+          <!-- 1. HTML -->
+          <div class="skill-card sfx-hover">
+            <div class="skill-card-inner">
+              <div class="skill-header">
+                <div class="skill-icon-box html">
+                  <i class="fa-brands fa-html5"></i>
+                </div>
+                <span class="skill-rank">CORE</span>
+              </div>
+              <h3 class="skill-name">HTML</h3>
+              <p class="skill-desc">Semantic HTML5 architectures, accessible DOM structures, WebGL canvas integration.</p>
+              <div class="skill-bar-wrapper">
+                <div class="skill-bar-label">
+                  <span>MASTERY</span>
+                  <span>95%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 95%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. CSS -->
+          <div class="skill-card sfx-hover">
+            <div class="skill-card-inner">
+              <div class="skill-header">
+                <div class="skill-icon-box css">
+                  <i class="fa-brands fa-css3-alt"></i>
+                </div>
+                <span class="skill-rank">CORE</span>
+              </div>
+              <h3 class="skill-name">CSS</h3>
+              <p class="skill-desc">Futuristic glassmorphism, responsive Grid/Flex, neon animations, keyframes.</p>
+              <div class="skill-bar-wrapper">
+                <div class="skill-bar-label">
+                  <span>MASTERY</span>
+                  <span>92%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 92%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. JAVA -->
+          <div class="skill-card sfx-hover">
+            <div class="skill-card-inner">
+              <div class="skill-header">
+                <div class="skill-icon-box java">
+                  <i class="fa-brands fa-java"></i>
+                </div>
+                <span class="skill-rank">BACKEND</span>
+              </div>
+              <h3 class="skill-name">JAVA</h3>
+              <p class="skill-desc">Object-oriented programming, scalable backend algorithms, enterprise design patterns.</p>
+              <div class="skill-bar-wrapper">
+                <div class="skill-bar-label">
+                  <span>MASTERY</span>
+                  <span>88%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 88%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. JavaScript -->
+          <div class="skill-card sfx-hover">
+            <div class="skill-card-inner">
+              <div class="skill-header">
+                <div class="skill-icon-box js">
+                  <i class="fa-brands fa-js"></i>
+                </div>
+                <span class="skill-rank">SCRIPTING</span>
+              </div>
+              <h3 class="skill-name">JavaScript</h3>
+              <p class="skill-desc">Modern ES6+, asynchronous promises, game loops, Web Audio API, dynamic client logic.</p>
+              <div class="skill-bar-wrapper">
+                <div class="skill-bar-label">
+                  <span>MASTERY</span>
+                  <span>94%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 94%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Python -->
+          <div class="skill-card sfx-hover">
+            <div class="skill-card-inner">
+              <div class="skill-header">
+                <div class="skill-icon-box python">
+                  <i class="fa-brands fa-python"></i>
+                </div>
+                <span class="skill-rank">AI &amp; LOGIC</span>
+              </div>
+              <h3 class="skill-name">Python</h3>
+              <p class="skill-desc">AI model integrations, script automation, data parsing, smart study assistant backends.</p>
+              <div class="skill-bar-wrapper">
+                <div class="skill-bar-label">
+                  <span>MASTERY</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. AI Game Development -->
+          <div class="skill-card sfx-hover highlight-card">
+            <div class="skill-card-inner">
+              <div class="skill-header">
+                <div class="skill-icon-box ai-game">
+                  <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <span class="skill-rank specialty">SPECIALTY</span>
+              </div>
+              <h3 class="skill-name">AI Game Development</h3>
+              <p class="skill-desc">Three.js browser engines, AI story engines, dynamic boss fight mechanics, procedural quest logic.</p>
+              <div class="skill-bar-wrapper">
+                <div class="skill-bar-label">
+                  <span>MASTERY</span>
+                  <span>96%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill neon-green" style="width: 96%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Web Development -->
+          <div class="skill-card sfx-hover">
+            <div class="skill-card-inner">
+              <div class="skill-header">
+                <div class="skill-icon-box web-dev">
+                  <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <span class="skill-rank">FULL STACK</span>
+              </div>
+              <h3 class="skill-name">Web Development</h3>
+              <p class="skill-desc">Commercial client websites, booking systems, WhatsApp API flows, high conversion UX.</p>
+              <div class="skill-bar-wrapper">
+                <div class="skill-bar-label">
+                  <span>MASTERY</span>
+                  <span>93%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 93%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Creative Game Story Designer -->
+          <div class="skill-card sfx-hover highlight-card">
+            <div class="skill-card-inner">
+              <div class="skill-header">
+                <div class="skill-icon-box story">
+                  <i class="fa-solid fa-scroll"></i>
+                </div>
+                <span class="skill-rank specialty">CREATIVE</span>
+              </div>
+              <h3 class="skill-name">Creative Game Story Designer</h3>
+              <p class="skill-desc">Epic lore crafting, Demon Lord narrative arcs, branching character dialogues, player engagement.</p>
+              <div class="skill-bar-wrapper">
+                <div class="skill-bar-label">
+                  <span>MASTERY</span>
+                  <span>98%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill neon-green" style="width: 98%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section id="projects" class="projects-section">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header">
+          <div class="section-kicker">
+            <i class="fa-solid fa-trophy"></i> HALL OF ACHIEVEMENTS
+          </div>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">Real-world applications, browser 3D worlds, and AI-driven platforms</p>
+        </div>
+
+        <!-- 3 Featured Projects Grid -->
+        <div class="projects-grid">
+          
+          <!-- PROJECT 1: The 10 Skills - 3D RPG Game -->
+          <article class="project-card rpg-featured sfx-hover">
+            <div class="project-card-banner">
+              <div class="project-icon-badge">
+                <span class="icon-emoji">🎮</span>
+              </div>
+              <div class="project-category-tag">3D BROWSER RPG</div>
+            </div>
+
+            <div class="project-card-body">
+              <h3 class="project-title">The 10 Skills - 3D RPG Game</h3>
+              
+              <p class="project-desc">
+                3D browser RPG with 18000 HP boss battles, Demon Lord arc, skill collection system. Built with Three.js + AI story engine.
+              </p>
+
+              <!-- Interactive Boss Battle HP Bar HUD -->
+              <div class="boss-hp-widget" id="bossWidget">
+                <div class="boss-meta">
+                  <span class="boss-name"><i class="fa-solid fa-skull"></i> DEMON LORD ARC BOSS</span>
+                  <span class="boss-hp-number" id="bossHpText">18,000 / 18,000 HP</span>
+                </div>
+                <div class="boss-hp-track">
+                  <div class="boss-hp-fill" id="bossHpBar" style="width: 100%;"></div>
+                </div>
+                <button class="boss-attack-btn" id="attackBossBtn" title="Test Boss Attack Effect">
+                  <i class="fa-solid fa-wand-sparkles"></i> Strike Boss with AI Skill!
+                </button>
+              </div>
+
+              <!-- Tags -->
+              <div class="project-tags">
+                <span class="p-tag"><i class="fa-solid fa-cubes"></i> Three.js</span>
+                <span class="p-tag"><i class="fa-solid fa-brain"></i> AI Story</span>
+                <span class="p-tag hp-tag"><i class="fa-solid fa-heart-pulse"></i> 18000 HP</span>
+              </div>
+
+              <!-- Card Actions -->
+              <div class="project-footer">
+                <a href="#contact" class="project-btn-primary sfx-trigger">
+                  <i class="fa-solid fa-play"></i> Request Game Demo
+                </a>
+                <span class="project-status-pill live">IN DEVELOPMENT</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: Madurai RM Tour and Travels -->
+          <article class="project-card sfx-hover">
+            <div class="project-card-banner">
+              <div class="project-icon-badge travel">
+                <span class="icon-emoji">🚐</span>
+              </div>
+              <div class="project-category-tag">COMMERCIAL WEB APP</div>
+            </div>
+
+            <div class="project-card-body">
+              <h3 class="project-title">Madurai RM Tour and Travels</h3>
+              
+              <p class="project-desc">
+                Complete travel booking website for Innova fleet. Tour packages, booking system, WhatsApp integration.
+              </p>
+
+              <!-- Travel Feature Highlights -->
+              <div class="travel-preview-box">
+                <div class="preview-item">
+                  <i class="fa-solid fa-car-side"></i>
+                  <span>Dedicated Innova Fleet Booking</span>
+                </div>
+                <div class="preview-item">
+                  <i class="fa-solid fa-map-location-dot"></i>
+                  <span>Madurai, Rameswaram &amp; Kodaikanal Tours</span>
+                </div>
+                <div class="preview-item">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>Instant 1-Click WhatsApp Booking</span>
+                </div>
+              </div>
+
+              <!-- Tags -->
+              <div class="project-tags">
+                <span class="p-tag"><i class="fa-solid fa-code"></i> Web Dev</span>
+                <span class="p-tag"><i class="fa-solid fa-briefcase"></i> Business</span>
+                <span class="p-tag"><i class="fa-solid fa-location-dot"></i> Madurai</span>
+              </div>
+
+              <!-- Card Actions -->
+              <div class="project-footer">
+                <a href="http://madurairmtourandtravels.com/" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="project-btn-primary travel-btn sfx-trigger">
+                  <i class="fa-brands fa-whatsapp"></i>Click here          		</a>
+                <span class="project-status-pill active">LIVE CLIENT SYSTEM</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: AI Study Assistant - College Project -->
+          <article class="project-card sfx-hover">
+            <div class="project-card-banner">
+              <div class="project-icon-badge ai">
+                <span class="icon-emoji">🧠</span>
+              </div>
+              <div class="project-category-tag">ACADEMIC &amp; EDTECH AI</div>
+            </div>
+
+            <div class="project-card-body">
+              <h3 class="project-title">AI Study Assistant</h3>
+              
+              <p class="project-desc">
+                Smart AI assistant to help students study faster. Notes summarization, doubt clearing, exam prep.
+              </p>
+
+              <!-- EdTech Features Box -->
+              <div class="edtech-preview-box">
+                <div class="preview-metric">
+                  <span class="metric-num">3x</span>
+                  <span class="metric-desc">Faster Exam Revision</span>
+                </div>
+                <div class="preview-features-list">
+                  <div class="feature-bullet"><i class="fa-solid fa-check"></i> Automated Lecture Notes Summarizer</div>
+                  <div class="feature-bullet"><i class="fa-solid fa-check"></i> 24/7 AI Doubt Resolution</div>
+                  <div class="feature-bullet"><i class="fa-solid fa-check"></i> High-yield Exam Question Generator</div>
+                </div>
+              </div>
+
+              <!-- Tags -->
+              <div class="project-tags">
+                <span class="p-tag"><i class="fa-brands fa-python"></i> Python</span>
+                <span class="p-tag"><i class="fa-solid fa-robot"></i> AI</span>
+                <span class="p-tag"><i class="fa-solid fa-graduation-cap"></i> College Project</span>
+              </div>
+
+              <!-- Card Actions -->
+              <div class="project-footer">
+                <a href="#contact" class="project-btn-primary sfx-trigger">
+                  <i class="fa-solid fa-code-fork"></i> Inquire Project Details
+                </a>
+                <span class="project-status-pill featured">COLLEGE SHOWCASE</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        
+        <div class="contact-card-centered">
+          
+          <!-- Card Glowing Border Effect -->
+          <div class="contact-card-glow"></div>
+
+          <div class="contact-card-content">
+            
+            <div class="contact-icon-top">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+
+            <h2 class="contact-heading">Ready to Build Something?</h2>
+            <p class="contact-subtext">
+              For Games, Websites, or Innova Booking - Message me directly
+            </p>
+
+            <!-- Quick Action Grid -->
+            <div class="contact-buttons-grid">
+              
+              <!-- WhatsApp Button -->
+              <a href="https://wa.me/916382023335?text=Hi%20Praveen,%20I%20would%20like%20to%20work%20with%20you!" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="contact-action-btn whatsapp-btn sfx-trigger">
+                <div class="btn-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="btn-text-block">
+                  <span class="btn-sub">DIRECT CHAT</span>
+                  <span class="btn-main">WhatsApp: 6382023335</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square external-icon"></i>
+              </a>
+
+              <!-- Email Button -->
+              <a href="mailto:dinesh2021000@gmail.com" 
+                 class="contact-action-btn email-btn sfx-trigger">
+                <div class="btn-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="btn-text-block">
+                  <span class="btn-sub">EMAIL DIRECTLY</span>
+                  <span class="btn-main">dinesh2021000@gmail.com</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square external-icon"></i>
+              </a>
+
+              <!-- LinkedIn Button -->
+              <a href="https://www.linkedin.com/in/praveen-kumar-314583342" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="contact-action-btn linkedin-btn sfx-trigger">
+                <div class="btn-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                <div class="btn-text-block">
+                  <span class="btn-sub">CONNECT PROFESSIONALLY</span>
+                  <span class="btn-main">LinkedIn Profile</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square external-icon"></i>
+              </a>
+
+            </div>
+
+            <!-- Location & Availability Tag -->
+            <div class="contact-footer-badges">
+              <div class="location-badge">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Location: <strong>Madurai, TN</strong></span>
+              </div>
+              <div class="availability-badge">
+                <span class="pulse-green-dot"></span>
+                <span>Open for Freelance &amp; Game Collabs</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p class="footer-copyright">
+          &copy; 2026 S. Praveenkumar &bull; Built with <span class="heart-pulse">&hearts;</span> in Madurai
+        </p>
+      </div>
+      <div class="footer-right">
+        <a href="#hero" class="back-to-top sfx-trigger" aria-label="Back to top of page">
+          <span>BACK TO TOP</span>
+          <i class="fa-solid fa-chevron-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Quick WhatsApp Button for Mobile & Desktop -->
+  <aside class="floating-cta">
+    <a href="https://wa.me/916382023335?text=Hi%20Praveen,%20I'm%20interested%20in%20your%20services!" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="floating-whatsapp-btn" 
+       title="Quick WhatsApp Chat"
+       aria-label="Open WhatsApp Chat">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="floating-tooltip">Chat on WhatsApp</span>
+    </a>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>
